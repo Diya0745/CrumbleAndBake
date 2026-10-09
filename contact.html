@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CrumbleAndBake | Contact</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                CrumbleAndBake
+            </div>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="menu.html">Menu</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="gallery.html">Gallery</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <button class="cart-button" id="cart-button">
+
+                🛒 Cart
+                (<span id="cart-count">0</span>)
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+        <section class="simple-contact">
+
+            <div class="simple-contact-heading">
+
+                <p class="contact-eyebrow">
+                    GET IN TOUCH
+                </p>
+
+                <h1>
+                    We'd love to<br>
+                    <em>hear from you.</em>
+                </h1>
+
+                <p>
+                    Have a question, planning a celebration,
+                    or simply craving something sweet?
+                    Drop us a message.
+                </p>
+
+            </div>
+
+
+            <div class="contact-details">
+
+                <div>
+                    <span>📍</span>
+                    <h3>Visit Us</h3>
+                    <p>Bengaluru, Karnataka</p>
+                </div>
+
+                <div>
+                    <span>📞</span>
+                    <h3>Call Us</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+
+                <div>
+                    <span>✉️</span>
+                    <h3>Email Us</h3>
+                    <p>hello@crumbleandbake.com</p>
+                </div>
+
+            </div>
+
+
+            <form class="simple-contact-form" id="contact-form">
+
+                <div class="contact-input-row">
+
+                    <input type="text" placeholder="Your name" required>
+
+                    <input type="email" placeholder="Your email" required>
+
+                </div>
+
+                <textarea placeholder="Your message..." rows="5" required></textarea>
+
+                <button type="submit">
+                    Send Message →
+                </button>
+
+                <p id="contact-success">
+                    Thanks! We'll get back to you soon. 💜
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <div class="cart-panel" id="cart-panel">
+
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="close-cart">✕</button>
+        </div>
+
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <h3>Total: ₹<span id="cart-total">0</span></h3>
+            <button class="checkout-button">Checkout</button>
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+
+
+    <script>
+
+        const contactForm =
+            document.getElementById("contact-form");
+
+        const contactSuccess =
+            document.getElementById("contact-success");
+
+
+        if (contactForm) {
+
+            contactForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+                    contactSuccess.style.display =
+                        "block";
+
+                    contactForm.reset();
+
+                }
+            );
+
+        }
+
+    </script>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <h2>CrumbleAndBake</h2>
+
+            <p class="footer-tagline">
+                Baked with a little love.
+            </p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Bengaluru, Karnataka</p>
+                <p>hello@crumbleandbake.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 CrumbleAndBake</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

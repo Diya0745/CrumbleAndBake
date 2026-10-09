@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CrumbleAndBake | Checkout</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                CrumbleAndBake
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="checkout-page">
+
+            <div class="checkout-heading">
+                <p>Almost there!</p>
+                <h1>Checkout</h1>
+                <span>Complete your details and place your order.</span>
+            </div>
+
+
+            <div class="checkout-container">
+
+
+                <!-- CUSTOMER DETAILS -->
+
+                <div class="checkout-details">
+
+                    <h2>Delivery Details</h2>
+
+                    <div class="form-group">
+                        <label for="customer-name">Full Name</label>
+                        <input type="text" id="customer-name" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number</label>
+                        <input type="tel" id="customer-phone" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-email">Email</label>
+                        <input type="email" id="customer-email" placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-address">Address</label>
+                        <textarea id="customer-address" placeholder="Enter your delivery address"></textarea>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="customer-city">City</label>
+                            <input type="text" id="customer-city" placeholder="City">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-pincode">Pincode</label>
+                            <input type="text" id="customer-pincode" placeholder="Pincode">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ORDER SUMMARY -->
+
+                <div class="checkout-summary">
+
+                    <h2>Your Order</h2>
+
+                    <div id="checkout-items">
+                        <!-- Cart items will appear here -->
+                    </div>
+
+                    <div class="checkout-total">
+
+                        <div>
+                            <span>Subtotal</span>
+                            <span>₹<span id="checkout-subtotal">0</span></span>
+                        </div>
+
+                        <div class="total-row">
+                            <strong>Total</strong>
+                            <strong>₹<span id="checkout-total">0</span></strong>
+                        </div>
+
+                    </div>
+
+                    <button id="place-order" class="place-order-button">
+                        Place Order
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="order-success" id="order-success">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Order Confirmed!</h2>
+
+            <p>Thank you for choosing CrumbleAndBake.</p>
+
+            <p>Your order has been received successfully.</p>
+
+            <div class="order-number">
+                Order ID: <strong id="order-number"></strong>
+            </div>
+
+            <p class="success-message">
+                We'll get your treats ready with lots of love! 🧁
+            </p>
+
+            <a href="index.html" class="back-home-button">
+                Back to Home
+            </a>
+
+        </div>
+        
+    </main>
+
+
+    <script src="js/script.js"></script>
+
+        <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <h2>CrumbleAndBake</h2>
+
+            <p class="footer-tagline">
+                Baked with a little love.
+            </p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Bengaluru, Karnataka</p>
+                <p>hello@crumbleandbake.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 CrumbleAndBake</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

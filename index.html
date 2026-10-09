@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CrumbleAndBake</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                CrumbleAndBake
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <button class="cart-button" id="cart-button">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero">
+
+        <img src="assets\images\hero-background.jpg" alt="Freshly baked strawberry cake" class="hero-background">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="hero-eyebrow">
+                WELCOME TO
+            </p>
+
+            <h1>
+                CrumbleAndBake
+            </h1>
+
+            <p class="hero-tagline">
+                Baked with a little love.
+            </p>
+
+            <a href="menu.html" class="hero-button">
+                Explore Our Menu →
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="featured-products">
+
+        <div class="featured-heading">
+            <p class="featured-eyebrow">Our favourites</p>
+
+            <h2>Made to make you smile</h2>
+
+            <p class="featured-intro">
+                Some of our most-loved treats
+            </p>
+        </div>
+
+
+        <div class="featured-grid">
+
+            <!-- Chocolate Cake -->
+
+            <div class="featured-card">
+
+                <div class="featured-image">
+                    <img src="assets/images/chocolate-cake.jpg" alt="Chocolate Truffle Cake">
+                </div>
+
+                <div class="featured-info">
+
+                    <p class="featured-category">CAKES</p>
+
+                    <h3>Chocolate Truffle Cake</h3>
+
+                    <p>
+                        Rich chocolate cake layered with
+                        creamy chocolate frosting.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cookies -->
+
+            <div class="featured-card">
+
+                <div class="featured-image">
+                    <img src="assets/images/double-chocolate-cookies.jpg" alt="Double Chocolate Cookies">
+                </div>
+
+                <div class="featured-info">
+
+                    <p class="featured-category">COOKIES</p>
+
+                    <h3>Double Chocolate Cookies</h3>
+
+                    <p>
+                        Soft, chocolatey cookies packed
+                        with rich chocolate flavour.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Brownie -->
+
+            <div class="featured-card">
+
+                <div class="featured-image">
+                    <img src="assets/images/fudge-brownie.jpg" alt="Fudge Brownie">
+                </div>
+
+                <div class="featured-info">
+
+                    <p class="featured-category">BROWNIES</p>
+
+                    <h3>Fudge Brownie</h3>
+
+                    <p>
+                        Deeply chocolatey, rich and
+                        irresistibly fudgy.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="featured-cta">
+            <a href="menu.html">View Full Menu →</a>
+        </div>
+
+    </section>
+    
+    <div class="cart-panel" id="cart-panel">
+
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="close-cart">✕</button>
+        </div>
+
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <h3>Total: ₹<span id="cart-total">0</span></h3>
+            <button class="checkout-button">Checkout</button>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+        <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <h2>CrumbleAndBake</h2>
+
+            <p class="footer-tagline">
+                Baked with a little love.
+            </p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Bengaluru, Karnataka</p>
+                <p>hello@crumbleandbake.com</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 CrumbleAndBake</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

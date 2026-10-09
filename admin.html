@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | CrumbleAndBake</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                CrumbleAndBake
+            </div>
+
+            <div class="admin-label">
+                ADMIN PANEL
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="admin-page">
+
+        <section class="admin-header">
+            <p>CRUMBLEANDBAKE</p>
+            <h1>Admin Dashboard</h1>
+            <span>Manage your bakery from one place.</span>
+        </section>
+
+
+        <section class="admin-cards">
+
+            <div class="admin-card">
+                <span class="admin-card-icon">📦</span>
+                <h2>Orders</h2>
+                <p>View and manage customer orders.</p>
+                <button id="view-orders">View Orders →</button>
+            </div>
+
+            <div class="admin-card">
+                <span class="admin-card-icon">🍰</span>
+                <h2>Products</h2>
+                <p>Add, edit and manage your products.</p>
+                <button id="manage-products">Manage Products →</button>
+            </div>
+
+            <div class="admin-card">
+                <span class="admin-card-icon">✉️</span>
+                <h2>Messages</h2>
+                <p>View messages from customers.</p>
+                <button id="view-messages">View Messages →</button>
+            </div>
+
+        </section>
+
+
+        <section class="admin-section" id="orders-section">
+
+            <div class="admin-section-heading">
+                <p>RECENT ACTIVITY</p>
+                <h2>Orders</h2>
+            </div>
+
+            <div id="orders-container">
+                <p class="admin-empty">
+                    Orders will appear here.
+                </p>
+            </div>
+
+        </section>
+
+
+        <section class="admin-section" id="products-section">
+
+            <div class="admin-section-heading">
+                <p>MENU MANAGEMENT</p>
+                <h2>Products</h2>
+            </div>
+
+            <div class="add-product-form">
+
+                <h3>Add New Product</h3>
+
+                <input type="text" id="product-name" placeholder="Product name">
+
+                <select id="product-category">
+                    <option value="">Select category</option>
+                    <option value="cakes">Cakes</option>
+                    <option value="cookies">Cookies</option>
+                    <option value="chocolates">Chocolates</option>
+                    <option value="brownies">Brownies</option>
+                    <option value="pastries">Puffs & Pastries</option>
+                </select>
+
+                <input type="number" id="product-price" placeholder="Price">
+
+                <input type="text" id="product-image" placeholder="Image path e.g. assets/images/brownie.jpg">
+
+                <textarea id="product-description" placeholder="Product description" rows="4"></textarea>
+
+                <button id="add-product-button">
+                    Add Product →
+                </button>
+
+            </div>
+
+            <div id="products-container">
+                <p class="admin-empty">
+                    Products will appear here.
+                </p>
+            </div>
+
+        </section>
+
+
+        <section class="admin-section" id="messages-section">
+
+            <div class="admin-section-heading">
+                <p>CUSTOMER CONTACT</p>
+                <h2>Messages</h2>
+            </div>
+
+            <div id="messages-container">
+                <p class="admin-empty">
+                    Messages will appear here.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

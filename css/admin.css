@@ -1,0 +1,269 @@
+/* =========================
+   ADMIN PAGE
+========================= */
+
+.admin-page {
+    padding: 40px 8%;
+    background: #faf7fb;
+    min-height: 100vh;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.admin-header p {
+    color: #9b6aa0;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-header h1 {
+    font-size: 42px;
+    color: #3b2a45;
+    margin: 10px 0;
+}
+
+.admin-header span {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Dashboard Cards */
+
+.admin-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+}
+
+.admin-card-icon {
+    font-size: 40px;
+}
+
+.admin-card h2 {
+    margin: 15px 0;
+    color: #3b2a45;
+}
+
+.admin-card p {
+    color: #666;
+}
+
+.admin-card button {
+    margin-top: 20px;
+    background: #9b6aa0;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Sections */
+
+.admin-section {
+    margin-top: 60px;
+}
+
+.admin-section-heading p {
+    color: #9b6aa0;
+    letter-spacing: 2px;
+}
+
+.admin-section-heading h2 {
+    color: #3b2a45;
+    margin-bottom: 20px;
+}
+
+/* Add Product Form */
+
+.add-product-form {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    display: grid;
+    gap: 15px;
+}
+
+.add-product-form input,
+.add-product-form select,
+.add-product-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.add-product-form button {
+    background: #9b6aa0;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Product Cards */
+
+#products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 25px;
+}
+
+.admin-product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.admin-product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.admin-product-info {
+    padding: 20px;
+}
+
+.admin-product-info span {
+    color: #9b6aa0;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.admin-product-info h3 {
+    margin: 10px 0;
+    color: #3b2a45;
+}
+
+.admin-product-info p {
+    color: #666;
+}
+
+.admin-product-info strong {
+    display: block;
+    margin: 15px 0;
+    color: #3b2a45;
+}
+
+.admin-product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-product-actions button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.admin-product-actions button:first-child {
+    background: #9b6aa0;
+    color: white;
+}
+
+.admin-product-actions button:last-child {
+    background: #ff4d4d;
+    color: white;
+}
+
+
+/* Order Status Styling */
+
+.admin-order-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: #faf7fb;
+    border: 1px solid #eee3f0;
+    border-radius: 14px;
+}
+
+.admin-order-status label {
+    color: #3b2a45;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-order-status select {
+    padding: 10px 14px;
+    border: 1px solid #d8c4df;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #5c3d66;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-order-status select:focus {
+    border-color: #9b6aa0;
+    box-shadow: 0 0 0 3px rgba(155, 106, 160, 0.15);
+}
+
+.admin-order-status select:hover {
+    border-color: #9b6aa0;
+}
+
+@media (max-width: 480px) {
+    .admin-order-status {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-order-status select {
+        width: 100%;
+    }
+}
+
+
+.admin-message-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.admin-message-actions button {
+    background: #fff0f0;
+    color: #b83232;
+    border: 1px solid #f2cccc;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.admin-message-actions button:hover {
+    background: #b83232;
+    color: white;
+}
