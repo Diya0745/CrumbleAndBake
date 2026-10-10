@@ -26,7 +26,28 @@
     </header>
 
 
-    <main class="admin-page">
+
+    <div id="admin-login" class="admin-login">
+        <div class="admin-login-card">
+            <p>CRUMBLEANDBAKE</p>
+            <h1>Admin Login</h1>
+            <span>Sign in to manage your bakery.</span>
+
+            <form id="admin-login-form">
+                <label for="admin-username">Username</label>
+                <input type="text" id="admin-username" placeholder="Enter admin username" required>
+
+                <label for="admin-password">Password</label>
+                <input type="password" id="admin-password" placeholder="Enter admin password" required>
+
+                <button type="submit">Sign In →</button>
+                <p id="login-error" role="alert"></p>
+            </form>
+        </div>
+    </div>
+
+    <main class="admin-page" id="admin-dashboard" hidden>
+
 
         <section class="admin-header">
             <p>CRUMBLEANDBAKE</p>

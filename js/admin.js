@@ -1,8 +1,64 @@
+
+const API_URL = "http://localhost:3000/api";
+const TOKEN_KEY = "crumbleAdminToken";
+
+const loginScreen = document.getElementById("admin-login");
+const dashboard = document.getElementById("admin-dashboard");
+const loginForm = document.getElementById("admin-login-form");
+const loginError = document.getElementById("login-error");
+
+// Attach the login token to admin API requests.
+async function adminFetch(url, options = {}) {
+    const token = localStorage.getItem(TOKEN_KEY);
+
+    const headers = {
+        ...(options.headers || {}),
+        Authorization: `Bearer ${token}`
+    };
+
+    return fetch(url, { ...options, headers });
+}
+
+// Handle admin login.
+loginForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    loginError.textContent = "";
+
+    const username = document.getElementById("admin-username").value.trim();
+    const password = document.getElementById("admin-password").value;
+
+    try {
+        const response = await fetch(`${API_URL}/admin/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Login failed.");
+        }
+
+        localStorage.setItem(TOKEN_KEY, data.token);
+        document.getElementById("admin-password").value = "";
+
+        loginScreen.hidden = true;
+        dashboard.hidden = false;
+
+        loadOrders();
+        loadAdminProducts();
+        loadMessages();
+    } catch (error) {
+        loginError.textContent = error.message || "Unable to log in.";
+    }
+});
+
 const ordersContainer = document.getElementById("orders-container");
 
 async function loadOrders() {
     try {
-        const response = await fetch("http://localhost:3000/api/orders");
+        const response = await adminFetch("http://localhost:3000/api/orders");
 
         if (!response.ok) {
             throw new Error("Failed to fetch orders");
@@ -100,8 +156,6 @@ async function loadOrders() {
     }
 }
 
-loadOrders();
-
 const viewOrdersButton = document.getElementById("view-orders");
 const manageProductsButton = document.getElementById("manage-products");
 const viewMessagesButton = document.getElementById("view-messages");
@@ -195,8 +249,6 @@ async function loadAdminProducts() {
     }
 }
 
-loadAdminProducts();
-
 async function deleteProduct(productId) {
     const confirmed = confirm(
         "Are you sure you want to delete this product?"
@@ -207,7 +259,7 @@ async function deleteProduct(productId) {
     }
 
     try {
-        const response = await fetch(
+        const response = await adminFetch(
             `http://localhost:3000/api/products/${productId}`,
             {
                 method: "DELETE"
@@ -269,7 +321,7 @@ async function editProduct(productId) {
 
     try {
 
-        const response = await fetch(
+        const response = await adminFetch(
             `http://localhost:3000/api/products/${productId}`,
             {
                 method: "PUT",
@@ -324,7 +376,7 @@ if (addProductButton) {
 
         try {
 
-            const response = await fetch(
+            const response = await adminFetch(
                 "http://localhost:3000/api/products",
                 {
                     method: "POST",
@@ -362,7 +414,7 @@ const messagesContainer = document.getElementById("messages-container");
 
 async function loadMessages() {
     try {
-        const response = await fetch("http://localhost:3000/api/messages");
+        const response = await adminFetch("http://localhost:3000/api/messages");
 
         if (!response.ok) {
             throw new Error("Failed to fetch messages");
@@ -430,13 +482,11 @@ async function loadMessages() {
     }
 }
 
-loadMessages();
-
 async function updateOrderStatus(orderId, status) {
 
     try {
 
-        const response = await fetch(
+        const response = await adminFetch(
             `http://localhost:3000/api/orders/${orderId}/status`,
             {
                 method: "PUT",
@@ -474,7 +524,7 @@ async function deleteMessage(messageId) {
     if (!confirmed) return;
 
     try {
-        const response = await fetch(
+        const response = await adminFetch(
             `http://localhost:3000/api/messages/${messageId}`,
             {
                 method: "DELETE"

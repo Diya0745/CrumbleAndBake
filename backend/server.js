@@ -6,6 +6,8 @@ require("dotenv").config();
 const Product = require("./models/product");
 const Order = require("./models/order");
 const Message = require("./models/message");
+const jwt = require("jsonwebtoken");
+const verifyAdmin = require("./auth");
 
 const app = express();
 
@@ -14,6 +16,31 @@ app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("Welcome to CrumbleAndBake Backend 🍰");
+});
+
+
+app.post("/api/admin/login", (req, res) => {
+    const { username, password } = req.body;
+
+    if (
+        username !== process.env.ADMIN_USERNAME ||
+        password !== process.env.ADMIN_PASSWORD
+    ) {
+        return res.status(401).json({
+            message: "Invalid username or password"
+        });
+    }
+
+    const token = jwt.sign(
+        { role: "admin" },
+        process.env.JWT_SECRET,
+        { expiresIn: "1h" }
+    );
+
+    res.json({
+        message: "Login successful",
+        token
+    });
 });
 
 app.get("/api/products", async (req, res) => {
@@ -25,7 +52,7 @@ app.get("/api/products", async (req, res) => {
     }
 });
 
-app.post("/api/products", async (req, res) => {
+app.post("/api/products", verifyAdmin, async (req, res) => {
     try {
         const product = new Product(req.body);
         const savedProduct = await product.save();
@@ -36,7 +63,7 @@ app.post("/api/products", async (req, res) => {
     }
 });
 
-app.put("/api/products/:id", async (req, res) => {
+app.put("/api/products/:id", verifyAdmin, async (req, res) => {
     try {
         const updatedProduct = await Product.findOneAndUpdate(
             { id: req.params.id },
@@ -62,7 +89,7 @@ app.put("/api/products/:id", async (req, res) => {
 });
 
 
-app.delete("/api/products/:id", async (req, res) => {
+app.delete("/api/products/:id", verifyAdmin, async (req, res) => {
     try {
         const deletedProduct = await Product.findOneAndDelete({
             id: req.params.id
@@ -109,7 +136,7 @@ app.post("/api/orders", async (req, res) => {
     }
 });
 
-app.get("/api/orders", async (req, res) => {
+app.get("/api/orders", verifyAdmin, async (req, res) => {
     try {
         const orders = await Order.find().sort({ createdAt: -1 });
 
@@ -124,7 +151,7 @@ app.get("/api/orders", async (req, res) => {
     }
 });
 
-app.put("/api/orders/:id/status", async (req, res) => {
+app.put("/api/orders/:id/status", verifyAdmin, async (req, res) => {
     try {
         const updatedOrder = await Order.findByIdAndUpdate(
             req.params.id,
@@ -171,7 +198,7 @@ app.post("/api/messages", async (req, res) => {
     }
 });
 
-app.get("/api/messages", async (req, res) => {
+app.get("/api/messages", verifyAdmin, async (req, res) => {
     try {
         const messages = await Message
             .find()
@@ -189,7 +216,7 @@ app.get("/api/messages", async (req, res) => {
 });
 
 
-app.delete("/api/messages/:id", async (req, res) => {
+app.delete("/api/messages/:id", verifyAdmin, async (req, res) => {
     try {
         const deletedMessage = await Message.findByIdAndDelete(
             req.params.id
